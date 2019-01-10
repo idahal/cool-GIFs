@@ -1,12 +1,16 @@
 {
   "private": true,
   "scripts": {
-    "build": "rollup --config",
+    "start": "rollup --config --watch",
+    "build": "rollup --config --environment NODE_ENV:production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "rollup": "^1.1.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-browsersync": "^1.0.0"
   }
 }
