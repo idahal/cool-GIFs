@@ -1,7 +1,10 @@
 const browsersync = require('rollup-plugin-browsersync');
+const postcss = require('rollup-plugin-postcss');
+const postcssNormalize = require('postcss-normalize');
+const autoPrefixer = require('autoprefixer');
+
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = isProduction === false;
-
 
 module.exports = {
   input: 'src/scripts/index.js',
@@ -10,7 +13,15 @@ module.exports = {
   format: 'iife'
   },
 
-  plugins: [
-    (isDevelopment && browsersync({server: 'public'}))
-]
+  plugins:
+  [
+    (isDevelopment && browsersync({server: 'public'})),
+    postcss ({
+      extract: true,
+      plugins:[
+        postcssNormalize(),
+        autoPrefixer()
+      ],
+      })
+    ]
 };
