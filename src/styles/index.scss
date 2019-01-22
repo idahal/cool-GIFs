@@ -1,11 +1,14 @@
 @import-normalize;
 
+// Project specific styles.
+@import 'project/_project';
+@import 'components/_components';
+
 
 body {
   width: 100%;
   background-color: #FFFFFF;
-  font-family: 'Arial';
-  }
+}
 
 .header {
   display: flex;
